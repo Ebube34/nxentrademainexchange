@@ -23,7 +23,8 @@
     "react-twitter-embed": "^4.0.4",
     "sort-by": "^1.2.0",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vite-plugin-require": "^1.2.14"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",
