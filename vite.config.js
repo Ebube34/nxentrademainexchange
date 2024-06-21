@@ -11,5 +11,13 @@ export default defineConfig({
      "@": path.resolve(__dirname, "./src"),
    },
  },
+ build: {
+    sourcemap: true, // Enables source maps
+    rollupOptions: {
+      commonjsOptions: {
+        transformMixedEsModules: true,
+      },
+    },
+  },
 })
 
