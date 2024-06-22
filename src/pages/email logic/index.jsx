@@ -13,9 +13,9 @@ const EmailLogic = () => {
   const [error, setError] = useState(false);
 
   const configurations = {
-    method: "get",
+    method: "GET",
     headers: {'Content-Type': 'application/json'},
-    url: `https://fx-backend-sever.onrender.com/verifying/${token}`,
+    url: `https://nxentradebackend.onrender.com/verifying/${token}`,
   };
 
   axios(configurations)

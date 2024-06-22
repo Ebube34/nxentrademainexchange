@@ -336,8 +336,8 @@ const SignUp = () => {
     setProcess(true);
 
     const configuration = {
-      method: "post",
-      url: "https://fx-backend-sever.onrender.com/sign-up",
+      method: "POST",
+      url: "https://nxentradebackend.onrender.com/sign-up",
       headers: {'Content-Type': 'application/json'},
       data: {
         email: email,

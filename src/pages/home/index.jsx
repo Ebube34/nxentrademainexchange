@@ -43,7 +43,7 @@ const Home = () => {
             <Link to="/trade" className={buttonVariants()}>
               Trade Crypto
             </Link>
-            <Button variant="ghost">Create account &rarr; </Button>
+            <Button variant="ghost"><Link to="sign-up">Create account &rarr;</Link> </Button>
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@ const Home = () => {
 
       {/* fourth part */}
       <div className="mx-auto w-full max-w-screen-xl px-2.5 md:px-20 py-20">
-        <section className="bordet-t  w-full mt-20">
+        <section className="bordet-t  w-full mt-10">
           <div className="mx-auto text-center flex flex-col items-center max-w-3xl">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               Join our telegram channel{" "}

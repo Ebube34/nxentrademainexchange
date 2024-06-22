@@ -337,8 +337,8 @@ const SignIn = () => {
     setProcess(true);
     // https://fx-backend-sever.onrender.com
     const configuration = {
-      method: "post",
-      url: "https://fx-backend-sever.onrender.com/sign-in",
+      method: "POST",
+      url: "https://nxentradebackend.onrender.com/sign-in",
       headers: {'Content-Type': 'application/json'},
       data: {
         email: email,

@@ -17,9 +17,9 @@ const Navbar = () => {
    const id = getUserId();
 
    const configuration = {
-    method: "get",
+    method: "GET",
     headers: {'Content-Type': 'application/json'},
-    url:  `https://fx-backend-sever.onrender.com/authenticating/${id}`
+    url:  `https://nxentradebackend.onrender.com/authenticating/${id}`
    }
 
    axios(configuration).then((result) => {
