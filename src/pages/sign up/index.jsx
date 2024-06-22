@@ -318,55 +318,53 @@ const Icons = {
 };
 
 const SignUp = () => {
-  
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [process, setProcess] = useState(false);
   const navigate = useNavigate();
 
-  const  handleEmailChange = (event) => {
+  const handleEmailChange = (event) => {
     setEmail(event.target.value);
-};
-  const  handlePasswordChange = (event) => {
+  };
+  const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-};
+  };
 
   const onSubmit = (e) => {
-   e.preventDefault()
+    e.preventDefault();
 
-    setProcess(true)
+    setProcess(true);
 
     const configuration = {
-        method: "post",
-        url: "https://fx-backend-sever.onrender.com/sign-up",
-        data: {
-          email: email,
-          password: password,
-        },
-      };
+      method: "post",
+      url: "https://fx-backend-sever.onrender.com/sign-up",
+      data: {
+        email: email,
+        password: password,
+      },
+    };
 
-      axios(configuration)
-        .then((result) => {
-          setProcess(false);
-          setEmail("")
-          setPassword("")
+    axios(configuration)
+      .then((result) => {
+        setProcess(false);
+        setEmail("");
+        setPassword("");
 
-          navigate("/verify-email");
-          toast.success("Check your email we've sent a verification link")
-        })
-        .catch((error) => {
-          setProcess(false);
-          setEmail("")
-          setPassword("")
-          toast.error(error.response.data.message)
-        });
-  }
+        navigate("/verify-email");
+        toast.success("Check your email we've sent a verification link");
+      })
+      .catch((error) => {
+        setProcess(false);
+        setEmail("");
+        setPassword("");
+        toast.error(error.response.data.message);
+      });
+  };
 
-  
   return (
     <>
       <Navbar />
-            <Toaster position="top-center" richColors />
+      <Toaster position="top-center" richColors />
       <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col items-center space-y-2 text-center">
@@ -385,41 +383,44 @@ const SignUp = () => {
           </div>
 
           <div className="grid gap-6">
-                <form onSubmit={onSubmit}>
-                  <div className="grid gap-2">
-                    <div className="grid gap-1 py-2">
-                      <Label htmlFor="email">Email</Label>
+            <form onSubmit={onSubmit}>
+              <div className="grid gap-2">
+                <div className="grid gap-1 py-2">
+                  <Label htmlFor="email">Email</Label>
 
-                      <input
-                      type="email"
-                      name="email"
-                        style={{padding: "10px"}}
-                        onChange={handleEmailChange}
-                        value={email}
-                        className=
-                          "focus-visible:ring-red-500"
-                        placeholder="you@example.com"
-                      />
-                    </div>
+                  <input
+                    type="email"
+                    name="email"
+                    style={{ padding: "10px" }}
+                    onChange={handleEmailChange}
+                    value={email}
+                    className="focus-visible:ring-red-500"
+                    placeholder="you@example.com"
+                  />
+                </div>
 
-                    <div className="grid gap-1 py-2">
-                      <Label htmlFor="password">Password</Label>
-                      <input
-                      type="password"
-                      name="password"
-                      style={{padding: "10px"}}
-                        onChange={handlePasswordChange}
-                        value={password}
-                        className=
-                          "focus-visible:ring-red-500"
-                        placeholder="password"
-                      />
-                    </div>
+                <div className="grid gap-1 py-2">
+                  <Label htmlFor="password">Password</Label>
+                  <input
+                    type="password"
+                    name="password"
+                    style={{ padding: "10px" }}
+                    onChange={handlePasswordChange}
+                    value={password}
+                    className="focus-visible:ring-red-500"
+                    placeholder="password"
+                  />
+                </div>
 
-                    <Button>{process ? (  <Loader2 className="animate-spin h-8 w-8 text-zinc-600" />) : "Sign Up"}</Button>
-                  </div>
-                </form>
-            
+                <Button>
+                  {process ? (
+                    <Loader2 className="animate-spin h-8 w-8 text-zinc-600" />
+                  ) : (
+                    "Sign Up"
+                  )}
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
