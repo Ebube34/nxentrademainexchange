@@ -1,7 +1,8 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Routes } from "react-router-dom";
-import { Home } from './pages';
+import { EmailLogic, Home, SignIn, SignUp, VerifyEmail } from './pages';
 
 import React from 'react';
+
 
 
 
@@ -10,6 +11,10 @@ const router = createBrowserRouter(
   
     <Route path='/' >
       <Route index element={<Home />} />
+      <Route path="/sign-up" element={<SignUp />} />
+      <Route path="/verify-email"  element={<VerifyEmail />}/>
+      <Route path="/emailverification/:token" element={<EmailLogic />} />
+      <Route path="/sign-in" element={<SignIn />} />
     </Route>
    
   )

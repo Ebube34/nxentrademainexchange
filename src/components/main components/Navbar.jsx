@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icons } from "./Icons";
 import { Link, Outlet } from "react-router-dom";
 import { buttonVariants } from "../ui/button";
+import { userAuth } from "./userAuth";
+import axios from "axios";
+import { getUserId } from "./getUserId";
+import UserAccountNav from "./UserAccountNav";
 
 const Navbar = () => {
-    const user = false;
+
+
+  const user = userAuth();
+  const [userEmail, setUserEmail] = useState("") 
+
+  if(user) {
+   const id = getUserId();
+
+   const configuration = {
+    method: "get",
+    url:  `https://fx-backend-sever.onrender.com/authenticating/${id}`
+   }
+
+   axios(configuration).then((result) => {
+    setUserEmail(result.data.email)
+    
+   }).catch((err) => {return err})
+  }
+
   return (
     <>
       <div className="bg-white sticky z-50 top-0 inset-x-0 h-16">
@@ -46,9 +68,9 @@ const Navbar = () => {
                         aria-hidden="true"
                       />
                     )}
- {/* <UserAccountNav user={user} /> */}
+
                     {user ? (
-                        <></>
+                      <UserAccountNav user={userEmail} />
                     ) : (
                       <Link
                         to="/sign-up"
