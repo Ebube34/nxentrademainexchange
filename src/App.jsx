@@ -1,5 +1,9 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Routes } from "react-router-dom";
+<<<<<<< HEAD
 import { EmailLogic, Home, SignIn, SignUp, VerifyEmail } from './pages';
+=======
+import { Home, SignUp, VerifyEmail, EmailLogic, SignIn } from './pages';
+>>>>>>> 0619da6 (autheticating redone and completed)
 
 import React from 'react';
 

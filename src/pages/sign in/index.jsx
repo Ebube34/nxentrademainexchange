@@ -1,23 +1,38 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0619da6 (autheticating redone and completed)
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { buttonVariants, Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import * as yup from "yup";
 import { Toaster, toast } from "sonner";
 import { Formik } from "formik";
 import { TextField } from "@mui/material";
+=======
+>>>>>>> 0619da6 (autheticating redone and completed)
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import CryptoJS from "crypto-js";
 import Cookies from "js-cookie";
 import { Navbar } from "@/components/main components";
+<<<<<<< HEAD
 
 
 const Icons = {
     logo: () => (
         <svg
+=======
+import { Loader2 } from "lucide-react";
+import { Toaster, toast } from "sonner";
+
+const Icons = {
+  logo: () => (
+    <svg
+>>>>>>> 0619da6 (autheticating redone and completed)
       version="1.1"
       viewBox="0 0 1600 1520"
       width="80"
@@ -320,6 +335,7 @@ const Icons = {
         fill="#020305"
       />
     </svg>
+<<<<<<< HEAD
     )
 }
 
@@ -343,6 +359,66 @@ const SignIn = () => {
     <>
     <Navbar />
      <Toaster position="top-center" richColors />
+=======
+  ),
+};
+
+const SignIn = () => {
+ 
+  const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+  const [process, setProcess] = useState(false);
+  const navigate = useNavigate();
+
+  const  handleEmailChange = (event) => {
+    setEmail(event.target.value);
+};
+  const  handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+};
+
+  const onSubmit = (e) => {
+      e.preventDefault()
+      setProcess(true)
+      // https://fx-backend-sever.onrender.com
+      const configuration = {
+        method: "post",
+        url: "https://fx-backend-sever.onrender.com/sign-in",
+        data: {
+          email: values.email,
+          password: values.password,
+        },
+      };
+
+      axios(configuration)
+        .then((result) => {
+          setProcess(false);
+          setEmail("")
+          setPassword("")
+          const _id = result.data.userId;
+          const secretPass = "Xkhzg478tYUAEQivas6510000056444";
+          toast.success("Signed in successfully")
+
+          const data = CryptoJS.AES.encrypt(
+            JSON.stringify(_id),
+            secretPass
+          ).toString();
+          Cookies.set("Token", data, { path: "/", expires: 3 });
+          navigate("/");
+          window.location.reload(true);
+        })
+        .catch((error) => {
+          setProcess(false);
+          setEmail("")
+          setPassword("")
+          toast.error(error.response.data.message)
+        });
+  }
+  return (
+    <>
+      <Navbar />
+        <Toaster position="top-center" richColors></Toaster>
+>>>>>>> 0619da6 (autheticating redone and completed)
       <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col items-center space-y-2 text-center">
@@ -355,12 +431,17 @@ const SignIn = () => {
               })}
               to="/sign-up"
             >
+<<<<<<< HEAD
              Don&apos;t have an account
+=======
+              Don&apos;t have an account
+>>>>>>> 0619da6 (autheticating redone and completed)
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
           <div className="grid gap-6">
+<<<<<<< HEAD
             <Formik initialValues={initialValues} validationSchema={checkoutSchema} onSubmit={( values, {resetForm} ) => {
                 resetForm({ values: "" });
                 setProcess(true);
@@ -418,6 +499,42 @@ const SignIn = () => {
             </form>
             )}
             </Formik>
+=======
+            
+
+          
+           
+                <form onSubmit={onSubmit}>
+                  <div className="grid gap-2">
+                    <div className="grid gap-1 py-2">
+                      <Label htmlFor="email">Email</Label>
+                      <input
+                      type="email"
+                      name="email"
+                        style={{padding: "10px"}}
+                        onChange={handleEmailChange}
+                        value={email}     
+                        placeholder="you@example.com"
+                      />
+                    </div>
+
+                    <div className="grid gap-1 py-2">
+                      <Label htmlFor="password">Password</Label>
+                      <input
+                      type="password"
+                      name="password"
+                      style={{padding: "10px"}}
+                        onChange={handlePasswordChange}
+                        value={password}
+                        placeholder="password"
+                      />
+                    </div>
+
+                    <Button>{process ? (  <Loader2 className="animate-spin h-8 w-8 text-zinc-600" />) : "Sign Up"}</Button>
+                  </div>
+                </form>
+            
+>>>>>>> 0619da6 (autheticating redone and completed)
           </div>
         </div>
       </div>
