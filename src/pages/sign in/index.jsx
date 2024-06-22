@@ -1,38 +1,23 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 0619da6 (autheticating redone and completed)
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { buttonVariants, Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-import * as yup from "yup";
 import { Toaster, toast } from "sonner";
-import { Formik } from "formik";
-import { TextField } from "@mui/material";
-=======
->>>>>>> 0619da6 (autheticating redone and completed)
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import CryptoJS from "crypto-js";
 import Cookies from "js-cookie";
 import { Navbar } from "@/components/main components";
-<<<<<<< HEAD
-
-
-const Icons = {
-    logo: () => (
-        <svg
-=======
 import { Loader2 } from "lucide-react";
 import { Toaster, toast } from "sonner";
+
 
 const Icons = {
   logo: () => (
     <svg
->>>>>>> 0619da6 (autheticating redone and completed)
+
       version="1.1"
       viewBox="0 0 1600 1520"
       width="80"
@@ -335,7 +320,7 @@ const Icons = {
         fill="#020305"
       />
     </svg>
-<<<<<<< HEAD
+
     )
 }
 
@@ -355,13 +340,7 @@ const SignIn = () => {
       .string()
       .required("required"),
     })
-  return (
-    <>
-    <Navbar />
-     <Toaster position="top-center" richColors />
-=======
-  ),
-};
+ 
 
 const SignIn = () => {
  
@@ -418,7 +397,7 @@ const SignIn = () => {
     <>
       <Navbar />
         <Toaster position="top-center" richColors></Toaster>
->>>>>>> 0619da6 (autheticating redone and completed)
+
       <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col items-center space-y-2 text-center">
@@ -431,79 +410,14 @@ const SignIn = () => {
               })}
               to="/sign-up"
             >
-<<<<<<< HEAD
-             Don&apos;t have an account
-=======
+
               Don&apos;t have an account
->>>>>>> 0619da6 (autheticating redone and completed)
+
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
           <div className="grid gap-6">
-<<<<<<< HEAD
-            <Formik initialValues={initialValues} validationSchema={checkoutSchema} onSubmit={( values, {resetForm} ) => {
-                resetForm({ values: "" });
-                setProcess(true);
-
-                // https://fx-backend-sever.onrender.com
-                const configuration = {
-                    method: "post",
-                    url: "https://fx-backend-sever.onrender.com/sign-in",
-                    data: {
-                        email: values.email,
-                        password: values.password
-                    }
-                };
-
-               axios(configuration)
-               .then((result) => {
-                setProcess(false) 
-                toast.success(`Welcome back ${result.data.email}`)
-
-                const _id = result.data.userId;
-                  const secretPass = "Xkhzg478tYUAEQivas6510000056444"
-
-                  const data = CryptoJS.AES.encrypt(
-                    JSON.stringify(_id),
-                    secretPass
-                  ).toString();
-                  Cookies.set("Token", data, { path: "/", expires: 3 });
-                navigate("/")
-                window.location.reload(true);
-               })
-               .catch((error) => {
-                setProcess(false)
-                toast.error(error.response.data.message)
-               })
-
-            }}>
-            {({values, errors, touched, handleBlur, handleChange, handleSubmit}) => (
-                <form onSubmit={handleSubmit}>
-              <div className="grid gap-2">
-                <div className="grid gap-1 py-2">
-                  <Label htmlFor="email">Email</Label>
-                  <TextField type="email" onBlur={handleBlur} onChange={handleChange} value={values.email} name="email" error={!!touched.email && !!errors.email}
-                    helperText={touched.email && errors.email} />
-                  
-                </div>
-
-                <div className="grid gap-1 py-2">
-                  <Label htmlFor="password">Password</Label>
-                  <TextField type="password" onBlur={handleBlur} onChange={handleChange} value={values.password} name="password" error={!!touched.password && !!errors.password}
-                    helperText={touched.password && errors.password} />
-                </div>
-
-                <Button>{process ? "Please wait..." : "Sign In"}</Button>
-              </div>
-            </form>
-            )}
-            </Formik>
-=======
-            
-
-          
-           
                 <form onSubmit={onSubmit}>
                   <div className="grid gap-2">
                     <div className="grid gap-1 py-2">
@@ -533,13 +447,12 @@ const SignIn = () => {
                     <Button>{process ? (  <Loader2 className="animate-spin h-8 w-8 text-zinc-600" />) : "Sign Up"}</Button>
                   </div>
                 </form>
-            
->>>>>>> 0619da6 (autheticating redone and completed)
           </div>
         </div>
       </div>
     </>
   );
 };
+}
 
-export default SignIn;
+export default SignIn

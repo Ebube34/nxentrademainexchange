@@ -1,44 +1,20 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
-=======
-import React, {useState} from "react";
->>>>>>> 0619da6 (autheticating redone and completed)
 import { Icons } from "./Icons";
 import { Link, Outlet } from "react-router-dom";
 import { buttonVariants } from "../ui/button";
 import { userAuth } from "./userAuth";
 import axios from "axios";
-<<<<<<< HEAD
 import { getUserId } from "./getUserId";
 import UserAccountNav from "./UserAccountNav";
 
 const Navbar = () => {
 
 
-=======
-import UserAccountNav from "./UserAccountNav";
-import Cookies from "js-cookie";
-import CryptoJS from "crypto-js";
-
-
-const Navbar = () => {
-  
->>>>>>> 0619da6 (autheticating redone and completed)
   const user = userAuth();
   const [userEmail, setUserEmail] = useState("") 
 
   if(user) {
-<<<<<<< HEAD
    const id = getUserId();
-=======
-
-    const token = Cookies.get("Token");
-  const secretPass = "Xkhzg478tYUAEQivas6510000056444";
-  const decrptToken = CryptoJS.AES.decrypt(token, secretPass);
-  const userId = JSON.parse(decrptToken.toString(CryptoJS.enc.Utf8));
-
-  const id = userId
->>>>>>> 0619da6 (autheticating redone and completed)
 
    const configuration = {
     method: "get",
@@ -48,16 +24,9 @@ const Navbar = () => {
    axios(configuration).then((result) => {
     setUserEmail(result.data.email)
     
-<<<<<<< HEAD
    }).catch((err) => {return err})
   }
 
-=======
-   }).catch((err) => {
-
-   })
-  }
->>>>>>> 0619da6 (autheticating redone and completed)
   return (
     <>
       <div className="bg-white sticky z-50 top-0 inset-x-0 h-16">
@@ -99,11 +68,7 @@ const Navbar = () => {
                         aria-hidden="true"
                       />
                     )}
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 0619da6 (autheticating redone and completed)
                     {user ? (
                       <UserAccountNav user={userEmail} />
                     ) : (
