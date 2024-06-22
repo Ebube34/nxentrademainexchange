@@ -338,6 +338,7 @@ const SignUp = () => {
     const configuration = {
       method: "post",
       url: "https://fx-backend-sever.onrender.com/sign-up",
+      headers: {'Content-Type': 'application/json'},
       data: {
         email: email,
         password: password,
@@ -358,6 +359,7 @@ const SignUp = () => {
         setEmail("");
         setPassword("");
         toast.error(error.response.data.message);
+        
       });
   };
 

@@ -14,6 +14,7 @@ const EmailLogic = () => {
 
   const configurations = {
     method: "get",
+    headers: {'Content-Type': 'application/json'},
     url: `https://fx-backend-sever.onrender.com/verifying/${token}`,
   };
 

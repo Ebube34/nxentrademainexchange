@@ -339,6 +339,7 @@ const SignIn = () => {
     const configuration = {
       method: "post",
       url: "https://fx-backend-sever.onrender.com/sign-in",
+      headers: {'Content-Type': 'application/json'},
       data: {
         email: email,
         password: password,

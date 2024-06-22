@@ -18,6 +18,7 @@ const Navbar = () => {
 
    const configuration = {
     method: "get",
+    headers: {'Content-Type': 'application/json'},
     url:  `https://fx-backend-sever.onrender.com/authenticating/${id}`
    }
 
