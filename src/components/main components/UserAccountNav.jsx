@@ -34,11 +34,7 @@ const UserAccountNav = ({ user }) => {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem asChild>
-<<<<<<< HEAD
-            <Link href='/trade'>Trade</Link>
-=======
             <Link to='/trade'>Trade</Link>
->>>>>>> 0619da6 (autheticating redone and completed)
         </DropdownMenuItem>
         <DropdownMenuItem onClick={signOut} className="cursor-pointer">
             Log out
@@ -49,8 +45,4 @@ const UserAccountNav = ({ user }) => {
   )
 }
 
-<<<<<<< HEAD
-export default UserAccountNav
-=======
 export default UserAccountNav;
->>>>>>> 0619da6 (autheticating redone and completed)

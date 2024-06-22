@@ -1,38 +1,17 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 0619da6 (autheticating redone and completed)
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { buttonVariants, Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-import * as yup from "yup";
-import { Toaster, toast } from "sonner";
-import { Formik } from "formik";
-import { TextField } from "@mui/material";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Navbar } from "@/components/main components";
-
-
-const Icons = {
-    logo: () => (
-        <svg
-=======
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/main components";
 import { Loader2 } from "lucide-react";
 import { Toaster, toast } from "sonner";
 
-
-
 const Icons = {
   logo: () => (
     <svg
->>>>>>> 0619da6 (autheticating redone and completed)
       version="1.1"
       viewBox="0 0 1600 1520"
       width="80"
@@ -335,31 +314,6 @@ const Icons = {
         fill="#020305"
       />
     </svg>
-<<<<<<< HEAD
-    )
-}
-
-const SignUp = () => {
-
-    const initialValues = {
-        email: "",
-        password: "",
-    }
-
-    const [process, setProcess] = useState(false);
-    const navigate = useNavigate()
-
-    const checkoutSchema = yup.object().shape({
-        email: yup.string().email("invalid email").required("required"),
-        password: yup
-      .string()
-      .required("required"),
-    })
-  return (
-    <>
-    <Navbar />
-     <Toaster position="top-center" richColors />
-=======
   ),
 };
 
@@ -413,7 +367,6 @@ const SignUp = () => {
     <>
       <Navbar />
             <Toaster position="top-center" richColors />
->>>>>>> 0619da6 (autheticating redone and completed)
       <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col items-center space-y-2 text-center">
@@ -432,55 +385,6 @@ const SignUp = () => {
           </div>
 
           <div className="grid gap-6">
-<<<<<<< HEAD
-            <Formik initialValues={initialValues} validationSchema={checkoutSchema} onSubmit={( values, {resetForm} ) => {
-                resetForm({ values: "" });
-                setProcess(true);
-
-                
-                const configuration = {
-                    method: "post",
-                    url: "https://fx-backend-sever.onrender.com/sign-up",
-                    data: {
-                        email: values.email,
-                        password: values.password
-                    }
-                };
-
-               axios(configuration)
-               .then((result) => {
-                setProcess(false) 
-                toast.success(`Verification email sent to ${values.email}.`)
-                navigate("/verify-email")
-               })
-               .catch((error) => {
-                setProcess(false)
-                toast.error(error.response.data.message)
-               })
-
-            }}>
-            {({values, errors, touched, handleBlur, handleChange, handleSubmit}) => (
-                <form onSubmit={handleSubmit}>
-              <div className="grid gap-2">
-                <div className="grid gap-1 py-2">
-                  <Label htmlFor="email">Email</Label>
-                  <TextField type="email" onBlur={handleBlur} onChange={handleChange} value={values.email} name="email" error={!!touched.email && !!errors.email}
-                    helperText={touched.email && errors.email} />
-                  
-                </div>
-
-                <div className="grid gap-1 py-2">
-                  <Label htmlFor="password">Password</Label>
-                  <TextField type="password" onBlur={handleBlur} onChange={handleChange} value={values.password} name="password" error={!!touched.password && !!errors.password}
-                    helperText={touched.password && errors.password} />
-                </div>
-
-                <Button>{process ? "Please wait..." : "Sign Up"}</Button>
-              </div>
-            </form>
-            )}
-            </Formik>
-=======
                 <form onSubmit={onSubmit}>
                   <div className="grid gap-2">
                     <div className="grid gap-1 py-2">
@@ -516,7 +420,6 @@ const SignUp = () => {
                   </div>
                 </form>
             
->>>>>>> 0619da6 (autheticating redone and completed)
           </div>
         </div>
       </div>
