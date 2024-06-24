@@ -325,7 +325,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [process, setProcess] = useState(false);
   const navigate = useNavigate();
-  const isUser = userAuth()
+  const isUser = userAuth();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -340,7 +340,7 @@ const SignIn = () => {
     const configuration = {
       method: "POST",
       url: "https://nxentradebackend.onrender.com/sign-in",
-      headers: {'Content-Type': 'application/json'},
+      headers: { "Content-Type": "application/json" },
       data: {
         email: email,
         password: password,
@@ -372,9 +372,8 @@ const SignIn = () => {
       });
   };
 
-  if(isUser) {
-    navigate("/")
-    window.location.reload(true);
+  if (isUser) {
+    navigate("/");
   }
   return (
     <>
