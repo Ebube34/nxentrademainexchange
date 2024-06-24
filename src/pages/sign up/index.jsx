@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Foter, Navbar } from "@/components/main components";
+import { Foter, Navbar, userAuth } from "@/components/main components";
 import { Loader2 } from "lucide-react";
 import { Toaster, toast } from "sonner";
 
@@ -322,6 +322,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [process, setProcess] = useState(false);
   const navigate = useNavigate();
+  const user = userAuth();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -361,7 +362,13 @@ const SignUp = () => {
         toast.error(error.response.data.message);
         
       });
-  };
+  }; 
+
+  if(user){
+    navigate("/")
+    window.location.reload(true)
+    return
+  }
 
   return (
     <>
