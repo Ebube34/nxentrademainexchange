@@ -10,7 +10,6 @@ import CryptoJS from "crypto-js";
 import Cookies from "js-cookie";
 import { Foter, Navbar } from "@/components/main components";
 import { Loader2 } from "lucide-react";
-import { userAuth } from "@/components/main components";
 
 const Icons = {
   logo: () => (
@@ -325,7 +324,6 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [process, setProcess] = useState(false);
   const navigate = useNavigate();
-  const isUser = userAuth();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -372,11 +370,6 @@ const SignIn = () => {
       });
   };
 
-  if (isUser) {
-    navigate("/")
-    window.location.reload(true);
-    window.location.reload(false);
-  }
   return (
     <>
       <Navbar />

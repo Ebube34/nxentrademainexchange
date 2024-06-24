@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Foter, Navbar, userAuth } from "@/components/main components";
+import { Foter, Navbar } from "@/components/main components";
 import { Loader2 } from "lucide-react";
 import { Toaster, toast } from "sonner";
 
@@ -322,7 +322,6 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [process, setProcess] = useState(false);
   const navigate = useNavigate();
-  const user = userAuth();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -339,7 +338,7 @@ const SignUp = () => {
     const configuration = {
       method: "POST",
       url: "https://nxentradebackend.onrender.com/sign-up",
-      headers: {'Content-Type': 'application/json'},
+      headers: { "Content-Type": "application/json" },
       data: {
         email: email,
         password: password,
@@ -360,15 +359,8 @@ const SignUp = () => {
         setEmail("");
         setPassword("");
         toast.error(error.response.data.message);
-        
       });
-  }; 
-
-  if(user){
-    navigate("/")
-    window.location.reload(true)
-    window.location.reload(false);
-  }
+  };
 
   return (
     <>
