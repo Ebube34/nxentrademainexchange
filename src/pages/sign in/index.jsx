@@ -373,7 +373,8 @@ const SignIn = () => {
   };
 
   if(isUser) {
-   return navigate("/");
+    navigate("/")
+    window.location.reload(true);
   }
   return (
     <>
