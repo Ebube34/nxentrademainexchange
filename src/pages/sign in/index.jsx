@@ -10,6 +10,7 @@ import CryptoJS from "crypto-js";
 import Cookies from "js-cookie";
 import { Navbar } from "@/components/main components";
 import { Loader2 } from "lucide-react";
+import { userAuth } from "@/components/main components";
 
 const Icons = {
   logo: () => (
@@ -335,7 +336,6 @@ const SignIn = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     setProcess(true);
-    // https://fx-backend-sever.onrender.com
     const configuration = {
       method: "POST",
       url: "https://nxentradebackend.onrender.com/sign-in",
@@ -370,6 +370,10 @@ const SignIn = () => {
         toast.error(error.response.data.message);
       });
   };
+
+  if(userAuth === true) {
+    navigate("/")
+  }
   return (
     <>
       <Navbar />
