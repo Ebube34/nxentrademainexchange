@@ -367,7 +367,6 @@ const SignUp = () => {
   if(user){
     navigate("/")
     window.location.reload(true)
-    return
   }
 
   return (

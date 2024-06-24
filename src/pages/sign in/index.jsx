@@ -375,8 +375,6 @@ const SignIn = () => {
   if (isUser) {
     navigate("/")
     window.location.reload(true)
-    
-    return
   }
   return (
     <>
