@@ -425,7 +425,9 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      <div style={{marginTop: "4rem"}}>
       <Foter />
+      </div>
     </>
   );
 };

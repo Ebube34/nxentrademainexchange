@@ -431,7 +431,9 @@ const SignIn = () => {
           </div>
         </div>
       </div>
+      <div style={{marginTop: "4rem"}}>
       <Foter />
+      </div>
     </>
   );
 };
