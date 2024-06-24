@@ -4,6 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 import { Zap, Smartphone, Percent } from "lucide-react";
 import { Timeline, eagerLoadTwitterLibrary } from "react-twitter-widgets";
 import Navbar from "../../components/main components/Navbar";
+import { Foter } from "@/components/main components";
 
 
 const perks = [
@@ -121,11 +122,11 @@ const Home = () => {
               Introducing our Telegram Channel{" "}
             </h1>
             <p className="mt-6 text-lg max-w-prose text-muted-foreground">Our Telegram community is rapidly expanding as an educational and interactive space focused on cryptocurrencies.</p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-14 mb-20">
+            <div className="flex flex-col sm:flex-row gap-4 mt-6 mb-20">
             <Button variant="ghost">
 
               <Link to="/">
-                Join Channel &rarr;
+                Join Telegram Channel &rarr;
               </Link>
               </Button>
             </div>
@@ -134,6 +135,7 @@ const Home = () => {
       </div>
 
       {/* fifth part */}
+      <Foter />
       <Outlet />
     </>
   );

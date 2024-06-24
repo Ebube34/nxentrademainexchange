@@ -1,21 +1,13 @@
-import React, { useState } from "react";
-import { ArrowRight } from "lucide-react";
-import { buttonVariants, Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Foter, Navbar } from "@/components/main components";
-import { Loader2 } from "lucide-react";
-import { Toaster, toast } from "sonner";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Icons = {
   logo: () => (
     <svg
       version="1.1"
       viewBox="0 0 1600 1520"
-      width="80"
-      height="80"
+      width="auto"
+      height="65"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -317,118 +309,68 @@ const Icons = {
   ),
 };
 
-const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [process, setProcess] = useState(false);
-  const navigate = useNavigate();
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-
-    setProcess(true);
-
-    const configuration = {
-      method: "POST",
-      url: "https://nxentradebackend.onrender.com/sign-up",
-      headers: {'Content-Type': 'application/json'},
-      data: {
-        email: email,
-        password: password,
-      },
-    };
-
-    axios(configuration)
-      .then((result) => {
-        setProcess(false);
-        setEmail("");
-        setPassword("");
-
-        navigate("/verify-email");
-        toast.success("Check your email we've sent a verification link");
-      })
-      .catch((error) => {
-        setProcess(false);
-        setEmail("");
-        setPassword("");
-        toast.error(error.response.data.message);
-        
-      });
-  };
+const Foter = () => {
+  const location = useLocation();
+  const pathName = location.pathname;
+  const pathsToMinimize = ["/verify-email", "/sign-up", "/sign-in"];
 
   return (
     <>
-      <Navbar />
-      <Toaster position="top-center" richColors />
-      <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
-        <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-          <div className="flex flex-col items-center space-y-2 text-center">
-            <Icons.logo />
-            <h1 className="text-2xl font-bold">Create an account</h1>
-            <Link
-              className={buttonVariants({
-                variant: "link",
-                className: "gap-1.5",
-              })}
-              to="/sign-in"
-            >
-              Already have an account? sign-in
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+      <footer className="bg-white flex-grow-0">
+        <div className="mx-auto w-full max-w-screen-xl px-2.5 md:px-20">
+          <div className="border-t border-gray-200">
+            {pathsToMinimize.includes(pathName) ? null : (
+              <div className="pb-8 pt-16">
+                <div className="flex justify-center">
+                  <Icons.logo />
+                </div>
+              </div>
+            )}
+
+            {pathsToMinimize.includes(pathName) ? null : (
+              <div>
+                <div className="relative flex items-center px-6 py-6 sm:py-8 lg:mt-0">
+                  <div className="absolute inset-0 overflow-hidden rounded-lg">
+                    <div
+                      aria-hidden="true"
+                      className="absolute bg-zinc-50 inset-0 bg-gradient-to-br bg-opacity-90"
+                    />
+                  </div>
+
+                  <div className="text-center relative mx-auto max-w-sm">
+                    <h3 className="font-semibold text-gray-900">Trade</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      if you&apos;d like to trade your cryptocurrencies directly
+                      with bank transfer you can do so in minutes.{" "}
+                      <Link
+                        to="/sign-in"
+                        className="whitespace-nowrap font-medium text-black hover:text-zinc-900"
+                      >
+                        Get started &rarr;
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
-          <div className="grid gap-6">
-            <form onSubmit={onSubmit}>
-              <div className="grid gap-2">
-                <div className="grid gap-1 py-2">
-                  <Label htmlFor="email">Email</Label>
+          <div className="py-10 md:flex md:items-center md:justify-between">
+            <div className="text-center md:text-left">
+                <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} All Rights Reserved.</p>
+            </div>
 
-                  <input
-                    type="email"
-                    name="email"
-                    style={{ padding: "10px" }}
-                    onChange={handleEmailChange}
-                    value={email}
-                    className="focus-visible:ring-red-500"
-                    placeholder="you@example.com"
-                  />
+            <div className="mt-4 flex items-center justify-center md:mt-0">
+                <div className="flex space-x-8">
+                    <Link to='/cookie-policy' className="text-sm text-muted-foreground hover:text-grey-600">Cookie Policy</Link>
+                    <Link to='/cookie-policy' className="text-sm text-muted-foreground hover:text-grey-600">Privacy Policy</Link>
                 </div>
-
-                <div className="grid gap-1 py-2">
-                  <Label htmlFor="password">Password</Label>
-                  <input
-                    type="password"
-                    name="password"
-                    style={{ padding: "10px" }}
-                    onChange={handlePasswordChange}
-                    value={password}
-                    className="focus-visible:ring-red-500"
-                    placeholder="password"
-                  />
-                </div>
-
-                <Button>
-                  {process ? (
-                    <Loader2 className="animate-spin h-8 w-8 text-zinc-600" />
-                  ) : (
-                    "Sign Up"
-                  )}
-                </Button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
-      </div>
-      <Foter />
+      </footer>
     </>
   );
 };
 
-export default SignUp;
+export default Foter;

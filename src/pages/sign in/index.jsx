@@ -8,7 +8,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import CryptoJS from "crypto-js";
 import Cookies from "js-cookie";
-import { Navbar } from "@/components/main components";
+import { Foter, Navbar } from "@/components/main components";
 import { Loader2 } from "lucide-react";
 import { userAuth } from "@/components/main components";
 
@@ -436,6 +436,7 @@ const SignIn = () => {
           </div>
         </div>
       </div>
+      <Foter />
     </>
   );
 };
