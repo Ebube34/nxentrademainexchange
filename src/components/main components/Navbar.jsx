@@ -6,6 +6,7 @@ import { userAuth } from "./userAuth";
 import axios from "axios";
 import { getUserId } from "./getUserId";
 import UserAccountNav from "./UserAccountNav";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
 
@@ -35,17 +36,24 @@ const Navbar = () => {
           <div className="mx-auto w-full max-w-screen-xl px-2.5 md:px-20">
             <div className="border-b border-gray-200">
               <div className="flex h-16 items-center">
-                {/* TODO Mobile nav */}
+                
+               
 
-                <div
+               <div style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "stretch" }}>
+               <div
                   onClick={() => navigate("/")}
-                  className="ml-4 flex lg:ml-0"
+                  className="ml-4 flex lg:ml-0 mr-100"
                 >
                   <Link to="/">
                     <Icons.logo />
                   </Link>
                 </div>
 
+                  <div className="mr-4 mt-2">
+                <MobileNav userEmail={userEmail} user={user} />
+                </div>
+               </div>
+                
                 <div className="hidden z-50 lg:ml-8 lg:block lg:self-stretch">
 
                 </div>
