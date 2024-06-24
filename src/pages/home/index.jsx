@@ -2,8 +2,9 @@ import React from "react";
 import { Button, buttonVariants } from "../../components/ui/button";
 import { Link, Outlet } from "react-router-dom";
 import { Zap, Smartphone, Percent } from "lucide-react";
-import { TwitterTimelineEmbed } from "react-twitter-embed";
+import { Timeline, eagerLoadTwitterLibrary } from "react-twitter-widgets";
 import Navbar from "../../components/main components/Navbar";
+
 
 const perks = [
   {
@@ -24,6 +25,7 @@ const perks = [
       "NxenTrade provides the most competitive exchange rates available in the market.",
   },
 ];
+eagerLoadTwitterLibrary()
 
 const Home = () => {
   return (
@@ -43,7 +45,9 @@ const Home = () => {
             <Link to="/trade" className={buttonVariants()}>
               Trade Crypto
             </Link>
-            <Button variant="ghost"><Link to="sign-up">Create account &rarr;</Link> </Button>
+            <Button variant="ghost">
+              <Link to="sign-up">Create account &rarr;</Link>{" "}
+            </Button>
           </div>
         </div>
       </div>
@@ -87,12 +91,24 @@ const Home = () => {
               margin: "0 0 2rem 0",
             }}
           >
-            <TwitterTimelineEmbed
+            <Timeline
+              dataSource={{
+                sourceType: "profile",
+                screenName: "naira_rates",
+              }}
+              options={{ height: "400" }}
+              renderError={(_err) => (
+                <p style={{ textAlign: "center", fontSize: "20px" }}>
+                  could not load timeline
+                </p>
+              )}
+            />
+            {/* <TwitterTimelineEmbed
               sourceType="profile"
               screenName="naira_rates"
               options={{ innerHeight: 400 }}
               theme="light"
-            />
+            /> */}
           </div>
         </div>
       </section>

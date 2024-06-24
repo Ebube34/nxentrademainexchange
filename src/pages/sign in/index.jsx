@@ -372,7 +372,9 @@ const SignIn = () => {
   };
 
   if(userAuth === true) {
-    navigate("/")
+   
+   return navigate("/");
+   
   }
   return (
     <>
