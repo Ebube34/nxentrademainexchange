@@ -372,9 +372,8 @@ const SignIn = () => {
       });
   };
 
-  if(isUser === true) {
+  if(isUser) {
    return navigate("/");
-   
   }
   return (
     <>
