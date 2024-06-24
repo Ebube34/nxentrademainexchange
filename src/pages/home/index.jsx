@@ -118,13 +118,16 @@ const Home = () => {
         <section className="bordet-t  w-full mt-5">
           <div className="mx-auto text-center flex flex-col items-center max-w-3xl">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Join our telegram channel{" "}
+              Introducing our Telegram Channel{" "}
             </h1>
             <p className="mt-6 text-lg max-w-prose text-muted-foreground">Our Telegram community is rapidly expanding as an educational and interactive space focused on cryptocurrencies.</p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-13 mb-20">
-              <Link to="/" className={buttonVariants()}>
-                join
+            <div className="flex flex-col sm:flex-row gap-4 mt-14 mb-20">
+            <Button variant="ghost">
+
+              <Link to="/">
+                Join Channel &rarr;
               </Link>
+              </Button>
             </div>
           </div>
         </section>
