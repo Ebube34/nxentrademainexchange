@@ -325,6 +325,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [process, setProcess] = useState(false);
   const navigate = useNavigate();
+  const isUser = userAuth()
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -371,8 +372,7 @@ const SignIn = () => {
       });
   };
 
-  if(userAuth === true) {
-   
+  if(isUser === true) {
    return navigate("/");
    
   }
