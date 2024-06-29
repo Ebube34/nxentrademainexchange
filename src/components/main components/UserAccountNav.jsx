@@ -34,7 +34,7 @@ const UserAccountNav = ({ user }) => {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem asChild>
-            <Link to='/trade'>Trade</Link>
+            <Link onClick={() => {window.HubSpotConversations.widget.open()}}>Trade</Link>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={signOut} className="cursor-pointer">
             Log out

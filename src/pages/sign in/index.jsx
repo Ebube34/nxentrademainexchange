@@ -347,20 +347,20 @@ const SignIn = () => {
 
     axios(configuration)
       .then((result) => {
-        setProcess(false);
-        setEmail("");
-        setPassword("");
         const _id = result.data.userId;
         const secretPass = "Xkhzg478tYUAEQivas6510000056444";
-        toast.success("Signed in successfully");
 
         const data = CryptoJS.AES.encrypt(
           JSON.stringify(_id),
           secretPass
         ).toString();
+        
         Cookies.set("Token", data, { path: "/", expires: 3 });
+        setProcess(false);
+        setEmail("");
+        setPassword("");
+        toast.success("Signed in successfully");     
         navigate("/");
-        window.location.reload(true);
       })
       .catch((error) => {
         setProcess(false);

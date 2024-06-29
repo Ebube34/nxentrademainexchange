@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Icons } from "./Icons";
 import { Link, Outlet } from "react-router-dom";
 import { buttonVariants } from "../ui/button";
@@ -15,18 +15,17 @@ const Navbar = () => {
   const [userEmail, setUserEmail] = useState("") 
 
   if(user) {
-   const id = getUserId();
-
-   const configuration = {
-    method: "GET",
-    headers: {'Content-Type': 'application/json'},
-    url:  `https://nxentradebackend.onrender.com/authenticating/${id}`
-   }
-
-   axios(configuration).then((result) => {
-    setUserEmail(result.data.email)
-    
-   }).catch((err) => {return err})
+    const id = getUserId();
+    const configuration = {
+      method: "GET",
+      headers: {'Content-Type': 'application/json'},
+      url:  `https://nxentradebackend.onrender.com/authenticating/${id}`
+     }
+  
+     axios(configuration).then((result) => {
+      setUserEmail(result.data.user.email)
+      
+     }).catch((err) => {return err})
   }
 
   return (

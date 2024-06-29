@@ -5,6 +5,7 @@ import { Zap, Smartphone, Percent } from "lucide-react";
 import { Timeline, eagerLoadTwitterLibrary } from "react-twitter-widgets";
 import Navbar from "../../components/main components/Navbar";
 import { Foter } from "@/components/main components";
+import { cn } from "@/lib/utils";
 
 
 const perks = [
@@ -43,9 +44,11 @@ const Home = () => {
             crypto with local currencies at standard rates.{" "}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <Link to="/trade" className={buttonVariants()}>
+          <div onClick={() => {window.HubSpotConversations.widget.open()}}>
+            <Button className={ buttonVariants()}>
               Trade Crypto
-            </Link>
+            </Button>
+            </div>
             <Button variant="ghost">
               <Link to="sign-up">Create account &rarr;</Link>{" "}
             </Button>
