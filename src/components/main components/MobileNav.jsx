@@ -87,7 +87,7 @@ const MobileNav = ({ userEmail, user }) => {
                 onClick={() => {window.HubSpotConversations.widget.open()}}
                 className="-m-2 block p-2 font-medium text-gray-900"
               >
-                Sign up
+                Trade
               </Link>
             </div>
           </div>
