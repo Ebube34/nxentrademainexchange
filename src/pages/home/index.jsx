@@ -6,6 +6,8 @@ import { Timeline, eagerLoadTwitterLibrary } from "react-twitter-widgets";
 import Navbar from "../../components/main components/Navbar";
 import { Foter } from "@/components/main components";
 import { cn } from "@/lib/utils";
+import { shortVideo } from "@/videos";
+import { videoPosterImage } from "@/assets";
 
 
 const perks = [
@@ -85,6 +87,16 @@ const Home = () => {
         </div>
       </section>
 
+
+      {/* video Section */}
+      <section>
+      <div className="mx-auto w-full max-w-screen-xl px-2.5 md:px-20 py-20">
+        <div>
+          <video style={{borderRadius: "2rem", objectFit: "cover" }} controls muted loop src={shortVideo} poster={videoPosterImage}>Your Browser doesnt support HTML5 video tag.</video>
+        </div>
+      </div>
+      </section>
+
       {/* third part */}
       <section>
         <div className="mx-auto w-full max-w-screen-xl px-2.5 md:px-20 py-20">
@@ -98,7 +110,7 @@ const Home = () => {
             <Timeline
               dataSource={{
                 sourceType: "profile",
-                screenName: "naira_rates",
+                screenName: "NoLimitMike77",
               }}
               options={{ height: "400" }}
               renderError={(_err) => (
