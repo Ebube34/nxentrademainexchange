@@ -88,15 +88,6 @@ const Home = () => {
       </section>
 
 
-      {/* video Section */}
-      <section>
-      <div className="mx-auto w-full max-w-screen-xl px-2.5 md:px-20 py-20">
-        <div>
-          <video style={{borderRadius: "2rem", objectFit: "cover" }} controls muted loop src={shortVideo} poster={videoPosterImage}>Your Browser doesnt support HTML5 video tag.</video>
-        </div>
-      </div>
-      </section>
-
       {/* third part */}
       <section>
         <div className="mx-auto w-full max-w-screen-xl px-2.5 md:px-20 py-20">
@@ -110,7 +101,7 @@ const Home = () => {
             <Timeline
               dataSource={{
                 sourceType: "profile",
-                screenName: "NoLimitMike77",
+                screenName: "KoboFxApp",
               }}
               options={{ height: "400" }}
               renderError={(_err) => (
@@ -119,12 +110,6 @@ const Home = () => {
                 </p>
               )}
             />
-            {/* <TwitterTimelineEmbed
-              sourceType="profile"
-              screenName="naira_rates"
-              options={{ innerHeight: 400 }}
-              theme="light"
-            /> */}
           </div>
         </div>
       </section>
@@ -134,14 +119,14 @@ const Home = () => {
         <section className="bordet-t  w-full mt-5">
           <div className="mx-auto text-center flex flex-col items-center max-w-3xl">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Introducing our Telegram Channel{" "}
+              Introducing our Instagram account{" "}
             </h1>
-            <p className="mt-6 text-lg max-w-prose text-muted-foreground">Our Telegram community is rapidly expanding as an educational and interactive space focused on cryptocurrencies.</p>
+            <p className="mt-6 text-lg max-w-prose text-muted-foreground">Our Instagram community is rapidly expanding as an educational and interactive space focused on cryptocurrencies.</p>
             <div className="flex flex-col sm:flex-row gap-4 mt-6 mb-20">
             <Button variant="ghost">
 
               <Link to="/">
-                Join Telegram Channel &rarr;
+                Follow us &rarr;
               </Link>
               </Button>
             </div>
