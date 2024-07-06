@@ -5,9 +5,6 @@ import { Zap, Smartphone, Percent } from "lucide-react";
 import { Timeline, eagerLoadTwitterLibrary } from "react-twitter-widgets";
 import Navbar from "../../components/main components/Navbar";
 import { Foter } from "@/components/main components";
-import { cn } from "@/lib/utils";
-import { shortVideo } from "@/videos";
-import { videoPosterImage } from "@/assets";
 
 
 const perks = [
@@ -91,6 +88,7 @@ const Home = () => {
       {/* third part */}
       <section>
         <div className="mx-auto w-full max-w-screen-xl px-2.5 md:px-20 py-20">
+         {/* eslint-disable-next-line no-restricted-globals */}
           <div
             style={{
               height: "400px",
@@ -101,7 +99,7 @@ const Home = () => {
             <Timeline
               dataSource={{
                 sourceType: "profile",
-                screenName: "KoboFxApp",
+                screenName: "BitcoinMagazine",
               }}
               options={{ height: "400" }}
               renderError={(_err) => (
@@ -125,7 +123,7 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4 mt-6 mb-20">
             <Button variant="ghost">
 
-              <Link to="/">
+              <Link to="https://www.instagram.com/nxentrade.ex/" target="_blank" rel="noopener noreferrer">
                 Follow us &rarr;
               </Link>
               </Button>
