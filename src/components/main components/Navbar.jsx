@@ -8,23 +8,24 @@ import { getUserId } from "./getUserId";
 import UserAccountNav from "./UserAccountNav";
 import MobileNav from "./MobileNav";
 
+
 const Navbar = () => {
 
 
   const user = userAuth();
-  const [userEmail, setUserEmail] = useState("") 
+  const [userEmail, setUserEmail] = useState("")
 
   if(user) {
     const id = getUserId();
     const configuration = {
       method: "GET",
       headers: {'Content-Type': 'application/json'},
-      url:  `https://nxentradebackend.onrender.com/authenticating/${id}`
+      url:  `https://nxentradebackend.onrender.com/authenticating/${id}`,
      }
   
      axios(configuration).then((result) => {
-      setUserEmail(result.data.user.email)
-      
+      setUserEmail(result.data.userEmail)
+      console.log(result.data.userEmail)
      }).catch((err) => {return err})
   }
 

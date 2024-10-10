@@ -354,13 +354,13 @@ const SignIn = () => {
           JSON.stringify(_id),
           secretPass
         ).toString();
-        
+
         Cookies.set("Token", data, { path: "/", expires: 3 });
         setProcess(false);
         setEmail("");
         setPassword("");
-        toast.success("Signed in successfully");     
-        navigate("/");
+        toast.success("Signed in successfully");
+        navigate("/dashboard");
       })
       .catch((error) => {
         setProcess(false);
@@ -423,7 +423,7 @@ const SignIn = () => {
                   {process ? (
                     <Loader2 className="animate-spin h-8 w-8 text-zinc-600" />
                   ) : (
-                    "Sign Up"
+                    "Sign In"
                   )}
                 </Button>
               </div>
@@ -431,8 +431,8 @@ const SignIn = () => {
           </div>
         </div>
       </div>
-      <div style={{marginTop: "4rem"}}>
-      <Foter />
+      <div style={{ marginTop: "4rem" }}>
+        <Foter />
       </div>
     </>
   );

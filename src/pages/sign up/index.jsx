@@ -320,12 +320,16 @@ const Icons = {
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("")
   const [process, setProcess] = useState(false);
   const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
+  const handleNameChange = (event) => {
+    setName(event.target.value)
+  }
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
@@ -340,6 +344,7 @@ const SignUp = () => {
       url: "https://nxentradebackend.onrender.com/sign-up",
       headers: { "Content-Type": "application/json" },
       data: {
+        name: name,
         email: email,
         password: password,
       },
@@ -350,6 +355,7 @@ const SignUp = () => {
         setProcess(false);
         setEmail("");
         setPassword("");
+        setName("")
 
         navigate("/verify-email");
         toast.success("Check your email we've sent a verification link");
@@ -358,6 +364,7 @@ const SignUp = () => {
         setProcess(false);
         setEmail("");
         setPassword("");
+        setName("")
         toast.error(error.response.data.message);
       });
   };
@@ -385,7 +392,20 @@ const SignUp = () => {
 
           <div className="grid gap-6">
             <form onSubmit={onSubmit}>
-              <div className="grid gap-2">
+              <div className="grid gap-3">
+                <div className="grid gap-1 py-2">
+                <Label htmlFor="name">Username</Label>
+                <input
+                    type="text"
+                    name="name"
+                    style={{ padding: "10px" }}
+                    onChange={handleNameChange}
+                    value={name}
+                    className="focus-visible:ring-red-500"
+                    placeholder="john"
+                  />
+                </div>
+                
                 <div className="grid gap-1 py-2">
                   <Label htmlFor="email">Email</Label>
 

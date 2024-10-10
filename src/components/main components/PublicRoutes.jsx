@@ -4,7 +4,7 @@ import { userAuth } from "./userAuth";
 
 function PublicRoutes() {
   const token = userAuth();
-  return token ? <Navigate to="/" /> : <Outlet />;
+  return token ? <Navigate to="/dashboard" /> : <Outlet />;
 }
 
 export default PublicRoutes;

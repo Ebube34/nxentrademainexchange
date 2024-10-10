@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, buttonVariants } from "../../components/ui/button";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Navigate, Outlet } from "react-router-dom";
 import { Zap, Smartphone, Percent } from "lucide-react";
 import { Timeline, eagerLoadTwitterLibrary } from "react-twitter-widgets";
 import Navbar from "../../components/main components/Navbar";
@@ -43,9 +43,11 @@ const Home = () => {
             crypto with local currencies at standard rates.{" "}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
-          <div onClick={() => {window.HubSpotConversations.widget.open()}}>
+          <div>
             <Button className={ buttonVariants()}>
+              <Link to='sign-in'>
               Trade Crypto
+              </Link>
             </Button>
             </div>
             <Button variant="ghost">
