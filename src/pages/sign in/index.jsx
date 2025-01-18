@@ -326,7 +326,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
-    setEmail(event.target.value);
+    setUsername(event.target.value);
   };
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -379,7 +379,7 @@ const SignIn = () => {
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col items-center space-y-2 text-center">
             <Icons.logo />
-            <h1 className="text-2xl font-bold">sign in your acount</h1>
+            <h1 className="text-2xl font-bold">login your acount</h1>
             <Link
               className={buttonVariants({
                 variant: "link",
@@ -387,7 +387,7 @@ const SignIn = () => {
               })}
               to="/sign-up"
             >
-              Don&apos;t have an account
+              Don&apos;t have an account? sign up
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -396,14 +396,14 @@ const SignIn = () => {
             <form onSubmit={onSubmit}>
               <div className="grid gap-2">
                 <div className="grid gap-1 py-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="username">Email</Label>
                   <input
                     type="email"
                     name="email"
                     style={{ padding: "10px" }}
                     onChange={handleEmailChange}
                     value={email}
-                    placeholder="you@example.com"
+                    placeholder=""
                   />
                 </div>
 

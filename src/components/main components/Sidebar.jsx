@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {
   Sheet, SheetContent,
   SheetFooter,
@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom'
 
 
 const Sidebar = ({ username }) => {
-  
+
 
   return (
 
@@ -29,7 +29,7 @@ const Sidebar = ({ username }) => {
         </SheetTrigger>
         <SheetContent className="flex w-full flex-col pr-0 sm:max-w-lg">
           <SheetHeader className="space-y-2.5 pr-6">
-            <SheetTitle>Welcome {String(username).charAt(0).toUpperCase() + String(username).slice(1)} </SheetTitle>
+            <SheetTitle>Welcome {"  "} {String(username).charAt(0).toUpperCase() + String(username).slice(1)} </SheetTitle>
           </SheetHeader>
 
           <div>

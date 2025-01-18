@@ -21,7 +21,7 @@ import Sidebar from '@/components/main components/Sidebar';
 const Dashboard = () => {
 
   const user = userAuth();
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('');
   const id = getUserId();
 
@@ -39,7 +39,7 @@ const Dashboard = () => {
   axios(configuration).then((result) => {
     setUsername(result.data.username)
     setEmail(result.data.userEmail)
-    
+
   }).catch((err) => { return err });
 
   const MobileNavMenu = ({ email }) => {
@@ -50,13 +50,13 @@ const Dashboard = () => {
     useEffect(() => {
       setIsOpen(false);
     }, [location.pathname]);
-  
+
     const closeOnCurrent = (string) => {
       if (location.pathname === string) {
         setIsOpen(false);
       }
     };
-  
+
     useEffect(() => {
       if (isOpen) document.body.classList.add("overflow-hidden");
       else document.body.classList.remove("overflow-hidden");
@@ -184,95 +184,98 @@ const Dashboard = () => {
                     <div
                       className="ml-4 flex lg:ml-0 mr-100"
                     >
-                      <Sidebar username={username} />                   
+                      <Sidebar username={username} />
                     </div>
 
                     <div className="mr-4 mt-2">
                       <MobileNavMenu email={email} />
                     </div>
+                  </div>
 
-                    <div className="hidden z-50 lg:ml-8 lg:block lg:self-stretch">
+                  <div className="hidden z-50 lg:ml-8 lg:block lg:self-stretch">
 
-                    </div>
+                  </div>
 
-                    <div className="ml-auto flex items-center">
-                      <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                        {user ? null : (
-                          <Link
-                            to="/sign-in"
-                            className={buttonVariants({
-                              variant: "ghost",
-                            })}
-                          >
-                            Sign in
-                          </Link>
-                        )}
+                  <div className="ml-auto flex items-center">
+                    <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                      {user ? null : (
+                        <Link
+                          to="/sign-in"
+                          className={buttonVariants({
+                            variant: "ghost",
+                          })}
+                        >
+                          Sign in
+                        </Link>
+                      )}
 
-                        {user ? null : (
-                          <span
-                            className="h-6 w-px bg-gray-200"
-                            aria-hidden="true"
-                          />
-                        )}
+                      {user ? null : (
+                        <span
+                          className="h-6 w-px bg-gray-200"
+                          aria-hidden="true"
+                        />
+                      )}
 
-                        {user ? (
-                          <>
-                            <DropdownMenu>
-                              <DropdownMenuTrigger asChild className="overflow-visible">
-                                <Button variant="ghost" size="sm" className="relative">
-                                  My account
-                                </Button>
-                              </DropdownMenuTrigger>
+                      {user ? (
+                        <>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild className="overflow-visible">
+                              <Button variant="ghost" size="sm" className="relative">
+                                My account
+                              </Button>
+                            </DropdownMenuTrigger>
 
-                              <DropdownMenuContent className="bg-white w-60" align="end">
-                                <div className="flex items-center justify-start gap-2 p-2">
-                                  <div className="flex flex-col space-y-0.5 leading-none">
-                                    <p className="font-medium text-sm text-black">{email}</p>
-                                  </div>
+                            <DropdownMenuContent className="bg-white w-60" align="end">
+                              <div className="flex items-center justify-start gap-2 p-2">
+                                <div className="flex flex-col space-y-0.5 leading-none">
+                                  <p className="font-medium text-sm text-black">{email}</p>
                                 </div>
+                              </div>
 
-                                <DropdownMenuSeparator />
+                              <DropdownMenuSeparator />
 
-                                <DropdownMenuItem asChild>
-                                  <Link onClick={() => { window.HubSpotConversations.widget.open() }}>Trade</Link>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem onClick={signOut} className="cursor-pointer">
-                                  Log out
-                                </DropdownMenuItem>
-                              </DropdownMenuContent>
-                            </DropdownMenu>
-                          </>
-                        ) : (
-                          <Link
-                            to="/sign-up"
-                            className={buttonVariants({
-                              variant: "ghost",
-                            })}
-                          >
-                            Create account
-                          </Link>
-                        )}
+                              <DropdownMenuItem asChild>
+                                <Link onClick={() => { window.HubSpotConversations.widget.open() }}>Trade</Link>
+                              </DropdownMenuItem>
+                              <DropdownMenuItem onClick={signOut} className="cursor-pointer">
+                                Log out
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </>
+                      ) : (
+                        <Link
+                          to="/sign-up"
+                          className={buttonVariants({
+                            variant: "ghost",
+                          })}
+                        >
+                          Create account
+                        </Link>
+                      )}
 
-                        {user ? (
+                      {user ? (
+                        <span
+                          className="h-6 w-px bg-gray-200"
+                          aria-hidden="true"
+                        />
+                      ) : null}
+
+                      {user ? null : (
+                        <div className="flex lg:ml-6">
                           <span
                             className="h-6 w-px bg-gray-200"
                             aria-hidden="true"
                           />
-                        ) : null}
-
-                        {user ? null : (
-                          <div className="flex lg:ml-6">
-                            <span
-                              className="h-6 w-px bg-gray-200"
-                              aria-hidden="true"
-                            />
-                          </div>
-                        )}
+                        </div>
+                      )}
 
 
-                      </div>
                     </div>
                   </div>
+
+
+
                 </div>
               </div>
             </div>
