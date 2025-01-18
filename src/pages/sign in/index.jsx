@@ -326,7 +326,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
-    setUsername(event.target.value);
+    setEmail(event.target.value);
   };
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
