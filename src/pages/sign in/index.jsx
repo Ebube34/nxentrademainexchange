@@ -396,14 +396,14 @@ const SignIn = () => {
             <form onSubmit={onSubmit}>
               <div className="grid gap-2">
                 <div className="grid gap-1 py-2">
-                  <Label htmlFor="username">Email</Label>
+                  <Label htmlFor="email">Email</Label>
                   <input
                     type="email"
                     name="email"
                     style={{ padding: "10px" }}
                     onChange={handleEmailChange}
                     value={email}
-                    placeholder=""
+                    placeholder="email"
                   />
                 </div>
 
